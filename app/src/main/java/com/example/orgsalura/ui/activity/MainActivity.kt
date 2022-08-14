@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orgsalura.R
+import com.example.orgsalura.ui.dao.ProdutosDao
 import com.example.orgsalura.ui.model.Produto
 import com.example.orgsalura.ui.recyclerview.adapter.ListaProdutosAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Quando a activity for inicializada, o método "onCreate" será executado.
+     *
+     * Esse código será executado apenas uma vez, pois esse método, que faz parte
+     * do ciclo de vida de uma activity, será executado apenas uma vez.
      */
     override fun onCreate(savedInstanceState: Bundle?){
 
@@ -46,25 +50,6 @@ class MainActivity : AppCompatActivity() {
          */
 
         setContentView(R.layout.activity_main) //Definiremos a view que aparecerá nesse content quando ele for criado.
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-
-        recyclerView.adapter = ListaProdutosAdapter(this, listOf(
-            Produto(nome = "Teste", "Descrição", valor = BigDecimal.ONE),
-            Produto(nome = "Teste", "Descrição", valor = BigDecimal.TEN))
-        )
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val floatingActionButton = findViewById<FloatingActionButton>(R.id.addAProduct)
-
-        floatingActionButton.setOnClickListener {
-
-            val intent = Intent(this, FormularioProdutoActivity::class.java)
-            startActivity(intent) //Quando o botão "+" for clicado, a Activity "FormulatioProdutoActivity" será
-            //chamada. Cada vez que uma activity é criada, ela é inserida sob a acitivity
-            //atual, formando uma pilha de execuções.
-        }
 
 //        /**
 //         * Buscando as views e preenchendo os seus valores.
@@ -89,5 +74,37 @@ class MainActivity : AppCompatActivity() {
 //         * aplicativo, além de permitir acesso à vários recursos do Android.
 //         */
 //        Toast.makeText(this,"Olá, mundo!", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume(){
+        super.onResume()
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+
+        val dao = ProdutosDao()
+
+        recyclerView.adapter = ListaProdutosAdapter(context = this,
+            produtos = dao.buscaTodos())
+
+//        recyclerView.adapter = ListaProdutosAdapter(this, listOf(
+//            Produto(nome = "Teste", "Descrição", valor = BigDecimal.ONE),
+//            Produto(nome = "Teste", "Descrição", valor = BigDecimal.TEN))
+//        )
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        configurarFab()
+    }
+
+    private fun configurarFab() {
+        val floatingActionButton = findViewById<FloatingActionButton>(R.id.addAProduct)
+
+        floatingActionButton.setOnClickListener {
+
+            val intent = Intent(this, FormularioProdutoActivity::class.java)
+            startActivity(intent) //Quando o botão "+" for clicado, a Activity "FormulatioProdutoActivity" será
+            //chamada. Cada vez que uma activity é criada, ela é inserida sob a acitivity
+            //atual, formando uma pilha de execuções.
+        }
     }
 }
