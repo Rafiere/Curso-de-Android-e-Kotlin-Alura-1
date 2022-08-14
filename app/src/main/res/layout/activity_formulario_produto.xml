@@ -21,11 +21,12 @@
             android:id="@+id/nome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:hint="Nome"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></EditText>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- O tamanho das margens será definido apenas pelo "componente "nome", dessa
              forma, basta ajustarmos o componente "nome" para que todos os outros "EditText" sejam
@@ -36,12 +37,11 @@
             android:id="@+id/descricao"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:hint="Descrição"
             android:inputType="text"
-            app:layout_constraintEnd_toStartOf="@id/nome"
+            app:layout_constraintEnd_toEndOf="@id/nome"
             app:layout_constraintStart_toStartOf="@id/nome"
-            app:layout_constraintTop_toBottomOf="@id/nome"></EditText>
+            app:layout_constraintTop_toBottomOf="@id/nome"/>
 
         <EditText
             android:id="@+id/valor"
@@ -49,9 +49,9 @@
             android:layout_height="wrap_content"
             android:hint="Valor"
             android:inputType="numberDecimal"
-            app:layout_constraintEnd_toStartOf="@+id/descricao"
+            app:layout_constraintEnd_toEndOf="@+id/descricao"
             app:layout_constraintStart_toStartOf="@id/descricao"
-            app:layout_constraintTop_toBottomOf="@id/descricao"></EditText>
+            app:layout_constraintTop_toBottomOf="@id/descricao"/>
 
         <Button
             android:id="@+id/botao_salvar"
@@ -62,7 +62,7 @@
             app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></Button>
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
