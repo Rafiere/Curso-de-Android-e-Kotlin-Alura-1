@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- O scrollview fornece a habilidade de inserirmos um scroll, assim, quando
+ o teclado for utilizado, podemos scrollar para baixo a tela e acessarmos o botão
+ "Salvar".-->
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.activity.FormularioProdutoActivity">
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></EditText>
+
+        <!-- O tamanho das margens será definido apenas pelo "componente "nome", dessa
+             forma, basta ajustarmos o componente "nome" para que todos os outros "EditText" sejam
+             alterados. Isso ocorre pois os "constraint" estão sempre se referindo ao "EditText" cujo ID é
+             "nome".-->
+
+        <EditText
+            android:id="@+id/descricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Descrição"
+            android:inputType="text"
+            app:layout_constraintEnd_toStartOf="@id/nome"
+            app:layout_constraintStart_toStartOf="@id/nome"
+            app:layout_constraintTop_toBottomOf="@id/nome"></EditText>
+
+        <EditText
+            android:id="@+id/valor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Valor"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toStartOf="@+id/descricao"
+            app:layout_constraintStart_toStartOf="@id/descricao"
+            app:layout_constraintTop_toBottomOf="@id/descricao"></EditText>
+
+        <Button
+            android:id="@+id/botao_salvar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Salvar"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></Button>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
