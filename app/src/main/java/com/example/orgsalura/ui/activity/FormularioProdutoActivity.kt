@@ -56,6 +56,7 @@ class FormularioProdutoActivity : AppCompatActivity() {
 
             val dao = ProdutosDao()
             dao.adiciona(produtoNovo)
+            finish() //Fecharemos essa Activity e retornaremos para a activity anterior da pilha de activities.
         }
     }
 }
