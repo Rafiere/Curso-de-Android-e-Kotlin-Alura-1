@@ -14,8 +14,8 @@
      que exibe o nome do produto.-->
 
     <TextView
+        android:id="@+id/activity_formulario_produto_nome"
         android:layout_margin="16dp"
-        android:id="@+id/nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:text="Cesta de frutas"
@@ -41,7 +41,7 @@
     que exibe a descrição do produto.-->
 
     <TextView
-        android:id="@+id/descricao"
+        android:id="@+id/activity_formulario_produto_descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -49,7 +49,7 @@
         tools:text="Laranja, manga e uva"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nome"/>
+        app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_nome"/>
 
     <!-- O "id" é um ID para uma determinada view, enquanto que, ao
     utilizarmos o "constraintTop_toBottomOf", estamos definindo que a parte
@@ -60,7 +60,7 @@
     que exibe o valor do produto.-->
 
     <TextView
-        android:id="@+id/valor"
+        android:id="@+id/activity_formulario_produto_valor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -68,7 +68,7 @@
         tools:text="19.99"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descricao"/>
+        app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_descricao"/>
 
     <!-- O "marginStart" significa uma margem no início, enquanto que o
      "marginEnd" significa uma margem no final.-->
