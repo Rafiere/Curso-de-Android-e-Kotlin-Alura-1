@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Esse layout representará um item de produto. É como se fosse um componente que
+ representa um item da lista de produtos. -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- XML responsável por configurar o componente da caixa de texto
+     que exibe o nome do produto.-->
+
+    <TextView
+        android:layout_margin="16dp"
+        android:id="@+id/nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cesta de frutas"
+        tools:text="Cesta de frutas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- O "wrap_content" significa que esse arquivo vai crescer apenas no tamanho
+     de seu conteúdo, assim, como o conteúdo desse arquivo é um texto, ele crescerá apenas no
+     tamanho desse texto.-->
+
+    <!-- O "layout_constraintEnd" define que o eixo X dessa view ficará junto com o
+     final do elemento-pai, que, nesse caso, é o ConstrantLayout.
+
+     O "layout_constraintTop" define que o eixo Y dessa view ficará na parte superior
+     do elemento-pai, que é a tela.-->
+
+    <!-- O "tools:text" servirá apenas para inserirmos um valor de testes no preview da
+     aplicação, enquanto que o "android:text" conterá o valor real que será exibido na
+     tela do celular.-->
+
+    <!-- XML responsável por configurar o componente da caixa de texto
+    que exibe a descrição do produto.-->
+
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        tools:text="Laranja, manga e uva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nome"/>
+
+    <!-- O "id" é um ID para uma determinada view, enquanto que, ao
+    utilizarmos o "constraintTop_toBottomOf", estamos definindo que a parte
+    superior dessa view, no eixo Y, de altura, ficará abaixo da view que possui o id "nome", ou seja, ela
+    ficará embaixo da view anterior.-->
+
+    <!-- XML responsável por configurar o componente da caixa de texto
+    que exibe o valor do produto.-->
+
+    <TextView
+        android:id="@+id/valor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        tools:text="19.99"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descricao"/>
+
+    <!-- O "marginStart" significa uma margem no início, enquanto que o
+     "marginEnd" significa uma margem no final.-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
